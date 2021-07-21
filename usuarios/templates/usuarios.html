@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Lista Funcionários{% endblock %}
+
+{% block main %}
+<h3 text align="center">Lista de Funcionários</h3>
+
+  <div class="container">
+  <div class="table-responsive">
+    <table id="tabela-usr"  class="table table-bordered table-sm">
+          <thead>
+
+      <tr>
+
+        <th scope="col">Nome</th>
+        <th scope="col">Usuário Sistema</th>
+        <th scope="col">Setor</th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+    {% for usuario in usuarios %}
+    <tr>
+    	<th scope="row">{{ usuario.nome_completo }}       
+        <div class="btn-group" id="usr">
+          <a class="navbar-brand" href="{% url 'usuario_update' usuario.id %}">
+            <img src="{% static 'assets/img/edit.png' %}" width="20" height="20" alt="">
+          </a>
+         
+          <a class="navbar-brand" href="{% url 'usuario_delete' usuario.id %}">
+            <img src="{% static 'assets/img/delete.png' %}" width="20" height="20" alt="">
+          </a>
+
+        </div>
+          
+          <td>{{ usuario.usuario_sistema }}</td>
+          <td>{{ usuario.setor_usuario }}</td>
+          	        
+  </div>
+    </th>
+    </tr>
+    </tbody>
+    {% endfor %}
+    </table>
+
+        <div class="btn-group btn-group-toggle">
+            <a href="{% url 'usuarios_new' %}"><button type="button" class="btn btn-primary">
+            Cadastrar</button></a>
+        </div>
+
+    {% endblock %}

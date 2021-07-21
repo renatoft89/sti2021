@@ -1,0 +1,1 @@
+web: gunicorn gestao_equipamentos.wsgi --log-file -

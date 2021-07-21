@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Lista Setores{% endblock %}
+
+ 
+
+{% block main %}
+
+<h3 text align="center">Lista de Setores</h3>
+
+    <!--<div class="row">
+    <div class="col-12" >
+        <form action="">
+            <div style="form" width: 50px; margin: 2px auto;">
+                <input type="text" name="pesquisa">
+                <button id="pesquisar" name="pesquisar">Buscar</button>
+            </div>
+        </form>
+    </div>
+</div>-->
+
+
+  <div class="container">
+  <div class="table-responsive">
+    <table id="tabela-set"  class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Setor</th>
+                    <th scope="col">Local</th>
+                    <th scope="col">Grupo</th>
+                </tr>
+            </thead>
+
+
+    <tbody>
+    {% for setor in setores %}
+    <tr>
+        <th scope="row">{{ setor.nome_setor }}      
+            <div class="btn-group" id="tabela_setor">
+                <a class="navbar-brand" href="{% url 'setores_update' setor.id %}">
+                    <img src="{% static 'assets/img/edit.png' %}" width="20" height="20" alt="">
+                </a>
+                     
+                <a class="navbar-brand" href="{% url 'setores_delete' setor.id %}">
+                  <img src="{% static 'assets/img/delete.png' %}" width="20" height="20" alt="">
+                </a>
+            
+            </div>
+
+	    <td>{{ setor.localizacao }}</td>
+	    <td>{{ setor.grupo }}</td>
+
+    </div>
+    </div>
+</th>
+</tr>
+</tbody>
+{% endfor %}
+</table>
+
+<div class="btn-group btn-group-toggle">
+    <a href="{% url 'setores_new' %}"><button type="button" class="btn btn-primary">
+    Cadastrar</button></a>
+</div> 
+    
+{% endblock %}
+    

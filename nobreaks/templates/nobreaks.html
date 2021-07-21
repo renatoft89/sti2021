@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Lista - Nobreaks{% endblock %}
+
+ 
+
+{% block main %}
+<h3 text align="center">Lista de Nobreaks</h3>
+    <!--<div class="row">
+    <div class="col-12" >
+        <form action="">
+            <div style="form" width: 50px; margin: 2px auto;">
+                <input type="text" name="pesquisa">
+                <button id="pesquisar" name="pesquisar">Buscar</button>
+            </div>
+        </form>
+    </div>
+</div>-->
+
+
+  <div class="container">
+    <div class="table-responsive">
+         <table id="tabela-nob"  class="table table-bordered table-sm">
+            <thead>
+                <tr>                             
+                    <th scope="col">Patrimonio</th>
+                    <th scope="col">Modelo</th>
+                </tr>
+            </thead>
+    <tbody>
+    {% for nobreak in nobreaks %}
+    <tr>
+    	<th scope="row">{{ nobreak.patrimonio }}      
+            <div class="btn-group" id="nob">
+                <a class="navbar-brand" href="{% url 'nobreaks_update' nobreak.id %}">
+                    <img src="{% static 'assets/img/edit.png' %}" width="20" height="20" alt="">
+                </a>         
+                <a class="navbar-brand" href="{% url 'nobreaks_delete' nobreak.id %}">
+                    <img src="{% static 'assets/img/delete.png' %}" width="20" height="20" alt="">
+                 </a>
+    </div>
+        <td>{{ nobreak.get_modelo_nobreak_display }}</td>
+    </tr>
+</div>
+    </th>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+<div class="btn-group btn-group-toggle" id="botao-nob">
+    <a href="{% url 'nobreaks_new' %}"><button type="button" class="btn btn-primary">
+    Cadastrar</button></a>
+</div> 
+    {% endblock %}

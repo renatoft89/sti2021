@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load bootstrap%}
+
+{% block title %}Cadastro de Nobreaks{% endblock %}
+
+{% block main %}
+     <h2 class="cadastro" text align="center">Cadastrar Nobreaks</h2>
+    <div class="wrapper fadeInDown">
+        <div id="formNobreak">
+    <!-- Tabs Titles -->
+    <form method="POST">
+
+            {% csrf_token %}
+            {{ form|bootstrap }}
+
+
+             <button type="submit" class="btn btn-success">Salvar</button>
+        </form>
+         </div>
+    </div>
+{% endblock %}

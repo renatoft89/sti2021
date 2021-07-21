@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load bootstrap%}
+
+{% block title %}Cadastro de Equipamentos{% endblock %}
+
+{% block main %}
+    <h2 class="cadastro" text align="center">Cadastrar Equipamento</h2>
+    <div class="container" id="container-eqp"> 
+    <div class="wrapper fadeInDown">
+    <div id="formMaquina">
+    <!-- Tabs Titles -->
+    <form method="POST">
+    <form class="equip-form" method="POST">
+
+            {% csrf_token %}
+            {{ form|bootstrap }}
+
+
+             <button type="submit" class="btn btn-success">Salvar</button>
+        </form>
+         </div>
+         </div>
+    </div>
+{% endblock %}

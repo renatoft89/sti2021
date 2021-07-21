@@ -1,0 +1,73 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Lista Equipamentos{% endblock %}
+
+ 
+{% block main %}
+<h3 align="center">Lista de Equipamentos</h3>
+
+<div class="container">
+  <div class="table-responsive">
+    <table id="tabela-eqp"  class="table table-bordered table-sm">
+      <thead>
+            <tr>
+              <th scope="col">Usuário Sistema</th>
+              <th scope="col" align="center">Grupo</th>
+              <th scope="col" align="center">Modelo</th>
+              <th scope="col" align="center">Patrimonio</th>
+              <th scope="col" align="center">Processador</th>
+              <th scope="col" align="center">Memória</th>
+              <th scope="col" align="center">Sistema</th>
+              <th scope="col" align="center">Office</th>
+              <th scope="col" align="center">Antivirus</th>
+              <th scope="col" align="center">Nobreak</th>
+              <th scope="col" align="center">Internet</th>
+              <th scope="col" align="center">Impressora</th>
+              
+          </tr>
+      </thead>
+    <tbody>
+    {% for maquina in maquinas %}
+      <tr>
+    	<th scope="row">{{ maquina.usuario.usuario_sistema }}      
+        <div class="btn-group" id="tabela">
+          <a class="navbar-brand" href="{% url 'maquina_update' maquina.id %}">
+            <img src="{% static 'assets/img/edit.png' %}" width="20" height="20" alt="">
+          </a>
+         
+          <a class="navbar-brand" href="{% url 'maquina_delete' maquina.id %}">
+            <img src="{% static 'assets/img/delete.png' %}" width="20" height="20" alt="">
+          </a>
+
+        </div>
+          
+          <td>{{ maquina.grupo.grupo }}</td>
+          <td>{{ maquina.get_modelo_display }}</td>
+	        <td>{{ maquina.patrimonio }}</td>
+	        <td>{{ maquina.processador }}</td>
+	        <td>{{ maquina.memoria }}</td>
+	        <td>{{ maquina.get_sistema_display }}</td>
+	        <td>{{ maquina.get_office_display }}</td>
+	        <td>{{ maquina.get_antivirus_display }}</td>
+	        <td>{{ maquina.nobreak }}</td>
+	        <td>{{ maquina.get_internet_display }}</td>
+          <td>{{ maquina.impressora }}</td>
+    </div>      
+  </div>
+    </th>
+    </tr>
+    {% endfor %}
+    </tbody>
+    
+</table>
+
+  <div class="btn-group btn-group-toggle">
+    <a href="{% url 'maquina_new' %}"><button type="button" class="btn btn-primary">
+    Cadastrar</button></a>
+</div>
+</div>
+
+
+    {% endblock %}

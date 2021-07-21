@@ -1,0 +1,28 @@
+.home {
+    color: red;
+}
+
+.login-form {
+    width: 40%
+}
+
+.btnSubmit {
+    text-align: center;
+    width: 80%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: #fff;
+    background-color: #0062cc;
+}
+
+.container {
+    max-width: 1197px;
+    padding: 26px 0px 0;
+}
+.wrap-login100 {
+    margin-left: 28%;
+    background-color: #0062cc;
+}

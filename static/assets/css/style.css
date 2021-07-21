@@ -1,0 +1,113 @@
+
+/**
+Navbar
+**/
+.navbar{
+  margin-bottom: 5rem;
+}
+.bg-light {
+  background-color: #343a40;
+}
+.navbar-light .navbar-brand {
+    color: rgba(255,255,255,.9);
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: rgba(255, 255, 255,.9);
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(255, 255, 255,.8);
+}
+
+.jumbotron{
+  margin-top: -93px;
+}
+.wrap-login100 {
+  width: 572px;
+  background: #efeeee;
+  border-radius: 24px;
+  overflow: unset;
+  padding: 56px 10px 32px 124px;
+}
+.limiter{
+  width: 98%;
+  margin: 0 auto;
+}
+
+.cadastro{
+  text-align-last: center;
+  margin: 0 auto;
+}
+
+.login{
+  text-align-last: center;
+  margin: 0 auto;
+}
+
+.text-muted{
+  color: black;
+  text-align: end;
+}
+.th{
+  text-align: center;
+}
+.td{
+  text-align: center;
+}
+#tabela.btn-group{
+  margin-top: -24px;
+  padding-left: 160px;
+}
+#tabela_setor{
+  margin-top: -5px;
+  padding-left: 122px;
+}
+#id_username{
+  width: 50%;
+}
+#id_password{
+  width: 50%;
+}
+#container-eqp{
+  max-width: 90%;
+}
+#tabela-nob{
+  width: 98%;
+  margin-bottom: 1rem;
+  margin-left: 1%;
+}
+#tabela-usr{
+  width: 98%;
+  margin-bottom: 1rem;
+  margin-left: 1%;
+}
+#usr{
+  margin-top: -7px;
+  padding-left: 13px;
+}
+#nob{
+  margin-top: -7px;
+  padding-left: 12px;
+}
+#botao-nob{
+  margin-left: 1%;
+}
+#formMaquina{
+  width: 98%;
+  margin: 0 auto;
+}
+#formSetor{
+  width: 78%;
+  margin: 0 auto;
+}
+#formImpressora{
+  width: 78%;
+  margin: 0 auto;
+}
+#formServidor{
+  width: 78%;
+  margin: 0 auto;
+}
+#formNobreak{
+  width: 78%;
+  margin: 0 auto;
+}

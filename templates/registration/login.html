@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load bootstrap%}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block main %}
+
+        <h2 class="login">Login</h2>
+          
+          <div class="wrap-login100" id="container-login"c>
+            <form class="login-form" method="POST">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <input type="submit" class="btnSubmit" value="Login">
+
+            </form>
+          
+          </div>  
+{% endblock %}
+{% block footer %}
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Desenvolvimento web com Django 2.x</span>
+      </div>
+    </footer>
+{% endblock %}

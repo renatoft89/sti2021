@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Lista Impressoras{% endblock %}
+
+{% block main %}
+
+<h3 text align="center">Lista de Impressoras</h3>
+
+<div class="container">
+    <div class="table-responsive">
+         <table id="tabela-nob"  class="table table-bordered table-sm">
+            <thead>
+                <tr> 
+
+        <th scope="col"  align="center">Modelo</th>
+        <th scope="col"  align="center">Patrimonio</th>
+        <th scope="col"  align="center">Mac</th>
+        <th scope="col"  align="center">IP</th>
+
+              </tr>
+          </thead>
+    <tbody>
+    {% for impressora in impressoras %}
+    <tr>
+      <th scope="row" align="center">{{ impressora.get_modelo_display }}      
+            <div class="btn-group" id="nob">
+                <a class="navbar-brand" href="{% url 'impressoras_update' impressora.id %}">
+                    <img src="{% static 'assets/img/edit.png' %}" width="20" height="20" alt="">
+                </a>         
+                <a class="navbar-brand" href="{% url 'impressoras_delete' impressora.id %}">
+                    <img src="{% static 'assets/img/delete.png' %}" width="20" height="20" alt="">
+                 </a>
+            </div>
+
+        <td align="center">{{ impressora.patrimonio }}</td>
+        <td align="center">{{ impressora.mac }}</td>
+        <td align="center">{{ impressora.ip_impressora }}</td>
+        
+            
+            
+	        
+    </tr>
+</div>
+    </th>
+    </tr>
+    </tbody>
+    {% endfor %}
+
+    </table>
+
+<div class="btn-group btn-group-toggle" id="botao-nob">
+    <a href="{% url 'impressoras_new' %}"><button type="button" class="btn btn-primary">
+    Cadastrar</button></a>
+</div> 
+    {% endblock %}
+    
