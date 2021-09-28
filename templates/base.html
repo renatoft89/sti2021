@@ -1,82 +1,111 @@
 {% load static %}
-<meta charset="UTF-8" xmlns:color="http://www.w3.org/1999/xhtml">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/stick-footer.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/stick-footer.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 
-    <link rel="stylesheet" href="{% static 'assets/DataTables/datatables.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/DataTables/datatables.css' %}">
 
-<title>{% block title %}{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
 
-</head>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{% url 'home' %}">
-    <img src="{% static 'assets/img/home.png' %}" width="40" height="40" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    </head>
 
-    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cadastro</a>
-            <div class="dropdown-menu">
-                <a href="{% url 'maquina_new' %}" class="dropdown-item">Equipamentos</a>
-                <a href="{% url 'setores_new' %}" class="dropdown-item">Setores</a>
-                <a href="{% url 'impressoras_new' %}" class="dropdown-item">Impressoras</a>
-                <a href="{% url 'usuarios_new' %}" class="dropdown-item">Servidores</a>
-                <a href="{% url 'nobreaks_new' %}" class="dropdown-item">Nobreaks</a>
+      <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Sistema - STI</h3>
             </div>
-        </li>
-        <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Listar</a>
-            <div class="dropdown-menu">
-                <a href="{% url 'maquinas_list' %}" class="dropdown-item">Equipamentos</a>
-                <a href="{% url 'setores_list' %}" class="dropdown-item">Setores</a>
-                <a href="{% url 'impressoras_list' %}" class="dropdown-item">Impressoras</a>
-                <a href="{% url 'usuarios_list' %}" class="dropdown-item">Servidores</a>
-                <a href="{% url 'nobreaks_list' %}" class="dropdown-item">Nobreaks</a>
-            </div>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'relatorios' %}">Relatórios<span class="sr-only">(página atual)</span></a>
-        </li>
-        
-       </ul>
 
-      <ul class="navbar-nav align-items-center ml-auto">
-        <li class="nav-item dropdown" >
-            {% if user.is_authenticated %}
-            <a class="nav-link pr-0" id="navbarDropdownUser" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Olá {{ user.username }}
+            <ul class="list-unstyled components">
+                <p>Gerenciar Equipamentos</p>
+                <li>
+                  <a href="{% url 'home' %}">Home</a>
+              </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Cadastros</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li><a href="{% url 'maquina_new' %}">Equipamentos</a></li>
+                        <li><a href="{% url 'setores_new' %}">Setores</a></li>
+                        <li><a href="{% url 'impressoras_new' %}">Impressoras</a></li>
+                        <li><a href="{% url 'nobreaks_new' %}">Nobreaks</a></li>
+                        <li><a href="{% url 'usuarios_new' %}">Funcionarios</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Listar</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                      <li><a href="{% url 'maquinas_list' %}">Equipamentos</a></li>
+                      <li><a href="{% url 'setores_list' %}">Setores</a></li>
+                      <li><a href="{% url 'impressoras_list' %}">Impressoras</a></li>
+                      <li><a href="{% url 'nobreaks_list' %}">Nobreaks</a></li>
+                      <li><a href="{% url 'usuarios_list' %}">Funcionarios</a></li>
+                    </ul>
+                </li>
+                
+                
+                <li>
+                    <a href="{% url 'relatorios' %}">Relatórios</a>
+                </li>
+            </ul>
 
-              <img class="rounded-circle" src="{% static 'assets/img/renato.png' %}" alt="" width="35px" height="35px">
-             {% else %}
-              <a href="{% url 'login' %}"  class="btn btn-light">Entrar</a>
+            <ul class="list-unstyled CTAs">
+                <li><a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a></li>
+                <li><a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a></li>
+            </ul>
+        </nav>
 
+        <!-- Page Content Holder -->
+        <div id="content">
 
-            {% endif %}
-          </a>
-          <div class="dropdown-menu dropdown-menu-right py-0" aria-labelledby="navbarDropdownUser">
-            <div class="bg-white rounded-soft py-2">
-              {% if user.is_authenticated %}
-                <a class="dropdown-item" href="#">Configurações</a>
-                <a class="dropdown-item" href="{% url 'my_logout' %}">Sair</a>
-              {% else %}
-                <a class="dropdown-item" href="#">Configurações</a>
-                <a class="dropdown-item" href="{% url 'login' %}">Entrar</a>
-              {% endif %}
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <div class="navbar-header">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                            <i class="glyphicon glyphicon-align-left"></i>
+                            <span>Menu Sidebar</span>
+                        </button>
+                    </div>
+                    <ul id="menu_user" class="navbar-nav align-items-center ml-auto">
+                      <li class="nav-item dropdown" >
+                          {% if user.is_authenticated %}
+                          <a class="nav-link pr-0" id="navbarDropdownUser" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Olá {{ user.username }}
+              
+                            <img class="rounded-circle" src="{% static 'assets/img/renato.png' %}" alt="" width="35px" height="35px">
+                           {% else %}
+                           
+                            <a href="{% url 'login' %}" id="btn-login" class="btn btn-light">Entrar</a>
+              
+              
+                          {% endif %}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right py-0" aria-labelledby="navbarDropdownUser">
+                          <div class="bg-white rounded-soft py-2">
+                            {% if user.is_authenticated %}
+                              <a class="dropdown-item" href="#">Configurações</a>
+                              <a class="dropdown-item" href="{% url 'my_logout' %}">Sair</a>
+                            {% else %}
+                              <a class="dropdown-item" href="#">Configurações</a>
+                              <a class="dropdown-item" href="{% url 'login' %}">Entrar</a>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+
+            
+
 
    
         {% block main %}
@@ -102,6 +131,14 @@
 $(document).ready(function() {
     $('#tabela-eqp').DataTable();
 } );
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+      $('#sidebarCollapse').on('click', function () {
+          $('#sidebar').toggleClass('active');
+      });
+  });
 </script>
     
 {% block footer %}

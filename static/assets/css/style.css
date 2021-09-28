@@ -1,113 +1,183 @@
+/*
+    DEMO STYLE
+*/
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
-/**
-Navbar
-**/
-.navbar{
-  margin-bottom: 5rem;
-}
-.bg-light {
-  background-color: #343a40;
-}
-.navbar-light .navbar-brand {
-    color: rgba(255,255,255,.9);
-}
-.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
-    color: rgba(255, 255, 255,.9);
-}
-.navbar-light .navbar-nav .nav-link {
-    color: rgba(255, 255, 255,.8);
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
 }
 
-.jumbotron{
-  margin-top: -93px;
-}
-.wrap-login100 {
-  width: 572px;
-  background: #efeeee;
-  border-radius: 24px;
-  overflow: unset;
-  padding: 56px 10px 32px 124px;
-}
-.limiter{
-  width: 98%;
-  margin: 0 auto;
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
 }
 
-.cadastro{
-  text-align-last: center;
-  margin: 0 auto;
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
 }
 
-.login{
-  text-align-last: center;
-  margin: 0 auto;
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.text-muted{
-  color: black;
-  text-align: end;
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
 }
-.th{
-  text-align: center;
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
 }
-.td{
-  text-align: center;
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+.wrapper {
+    display: flex;
+    align-items: stretch;
 }
-#tabela.btn-group{
-  margin-top: -24px;
-  padding-left: 160px;
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #007bff;
+    color: #fff;
+    transition: all 0.3s;
 }
-#tabela_setor{
-  margin-top: -5px;
-  padding-left: 122px;
+
+#sidebar.active {
+    margin-left: -250px;
 }
-#id_username{
-  width: 50%;
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #007bff;
 }
-#id_password{
-  width: 50%;
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
 }
-#container-eqp{
-  max-width: 90%;
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
 }
-#tabela-nob{
-  width: 98%;
-  margin-bottom: 1rem;
-  margin-left: 1%;
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
 }
-#tabela-usr{
-  width: 98%;
-  margin-bottom: 1rem;
-  margin-left: 1%;
+#sidebar ul li a:hover {
+    color: #007bff;
+    background: #fff;
 }
-#usr{
-  margin-top: -7px;
-  padding-left: 13px;
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #007bff;
 }
-#nob{
-  margin-top: -7px;
-  padding-left: 12px;
+
+#menu_user {
+    position: fixed;
+    right: 6px;
+    top: auto;
+    width: 9em;
+    margin-top: 4.5em;
+  }
+  
+
+
+a[data-toggle="collapse"] {
+    position: relative;
 }
-#botao-nob{
-  margin-left: 1%;
+
+a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+    content: '\e259';
+    display: block;
+    position: absolute;
+    right: 20px;
+    font-family: 'Glyphicons Halflings';
+    font-size: 0.6em;
 }
-#formMaquina{
-  width: 98%;
-  margin: 0 auto;
+a[aria-expanded="true"]::before {
+    content: '\e260';
 }
-#formSetor{
-  width: 78%;
-  margin: 0 auto;
+
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #007bff;
 }
-#formImpressora{
-  width: 78%;
-  margin: 0 auto;
+
+ul.CTAs {
+    padding: 20px;
 }
-#formServidor{
-  width: 78%;
-  margin: 0 auto;
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
 }
-#formNobreak{
-  width: 78%;
-  margin: 0 auto;
+
+a.download {
+    background: #fff;
+    color: #007bff;
+}
+
+a.article, a.article:hover {
+    background: #007bff !important;
+    color: #fff !important;
+}
+
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+#content {
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+/* ---------------------------------------------------
+    Minhas Ediçoes
+----------------------------------------------------- */
+#footer-copyright {
+    color: chartreuse;
 }
