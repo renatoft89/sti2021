@@ -1,22 +1,33 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/stick-footer.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 
-        <link rel="stylesheet" href="{% static 'assets/DataTables/datatables.css' %}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>{% block title %}{% endblock %}</title>
+    <title>RSOFTWARE - Utilitários</title>
 
-    </head>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'assets/img/ico.ico' %}" />
 
-      <div class="wrapper">
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
@@ -26,8 +37,8 @@
             <ul class="list-unstyled components">
                 <p>Gerenciar Equipamentos</p>
                 <li>
-                  <a href="{% url 'home' %}">Home</a>
-              </li>
+                    <a href="{% url 'home' %}">Home</a>
+                </li>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Cadastros</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -41,110 +52,124 @@
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Listar</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
-                      <li><a href="{% url 'maquinas_list' %}">Equipamentos</a></li>
-                      <li><a href="{% url 'setores_list' %}">Setores</a></li>
-                      <li><a href="{% url 'impressoras_list' %}">Impressoras</a></li>
-                      <li><a href="{% url 'nobreaks_list' %}">Nobreaks</a></li>
-                      <li><a href="{% url 'usuarios_list' %}">Funcionarios</a></li>
+                        <li><a href="{% url 'maquinas_list' %}">Equipamentos</a></li>
+                        <li><a href="{% url 'setores_list' %}">Setores</a></li>
+                        <li><a href="{% url 'impressoras_list' %}">Impressoras</a></li>
+                        <li><a href="{% url 'nobreaks_list' %}">Nobreaks</a></li>
+                        <li><a href="{% url 'usuarios_list' %}">Funcionarios</a></li>
                     </ul>
                 </li>
-                
-                
+
+
                 <li>
                     <a href="{% url 'relatorios' %}">Relatórios</a>
                 </li>
             </ul>
 
             <ul class="list-unstyled CTAs">
-                <li><a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a></li>
+                <li><a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                </li>
                 <li><a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a></li>
             </ul>
         </nav>
 
-        <!-- Page Content Holder -->
+
+        <!-- Page Content  -->
         <div id="content">
 
-            <nav class="navbar navbar-default">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
-                    <div class="navbar-header">
-                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-                            <i class="glyphicon glyphicon-align-left"></i>
-                            <span>Menu Sidebar</span>
-                        </button>
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Menu</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item dropdown">
+                                {% if user.is_authenticated %}
+                                <a class="nav-link pr-0" id="navbarDropdownUser" href="#" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Olá {{ user.username }}
+
+                                    <img class="rounded-circle" src="{% static 'assets/img/renato.png' %}" alt=""
+                                        width="35px" height="35px">
+                                    {% else %}
+                                    <a href="{% url 'login' %}" class="btn btn-light">Entrar</a>
+
+
+                                    {% endif %}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right py-0"
+                                    aria-labelledby="navbarDropdownUser">
+                                    <div class="bg-white rounded-soft py-2">
+                                        {% if user.is_authenticated %}
+                                        <a class="dropdown-item" href="#">Configurações</a>
+                                        <a class="dropdown-item" href="{% url 'my_logout' %}">Sair</a>
+                                        {% else %}
+                                        <a class="dropdown-item" href="#">Configurações</a>
+                                        <a class="dropdown-item" href="{% url 'login' %}">Entrar</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <ul id="menu_user" class="navbar-nav align-items-center ml-auto">
-                      <li class="nav-item dropdown" >
-                          {% if user.is_authenticated %}
-                          <a class="nav-link pr-0" id="navbarDropdownUser" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Olá {{ user.username }}
-              
-                            <img class="rounded-circle" src="{% static 'assets/img/renato.png' %}" alt="" width="35px" height="35px">
-                           {% else %}
-                           
-                            <a href="{% url 'login' %}" id="btn-login" class="btn btn-light">Entrar</a>
-              
-              
-                          {% endif %}
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right py-0" aria-labelledby="navbarDropdownUser">
-                          <div class="bg-white rounded-soft py-2">
-                            {% if user.is_authenticated %}
-                              <a class="dropdown-item" href="#">Configurações</a>
-                              <a class="dropdown-item" href="{% url 'my_logout' %}">Sair</a>
-                            {% else %}
-                              <a class="dropdown-item" href="#">Configurações</a>
-                              <a class="dropdown-item" href="{% url 'login' %}">Entrar</a>
-                            {% endif %}
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                    
                 </div>
             </nav>
 
-            
 
+            <!-- CONTEUDO SITE
 
-   
-        {% block main %}
-        {% endblock %}
-        
-<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-<script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
-<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+ -->
 
-<script src="{% static 'assets/DataTables/datatables.js' %}"></script>
-<!-- Font Awesome JS -->
-<script defer src="{% static 'assets/js/solid.js' %}"></script>
-<script defer src="{% static 'assets/js/fontawesome.js' %}"></script>
-  
-<!--Scripts-->
-<script>
-  $(function () {
-    $('.dropdown-toggle').dropdown();
-  }); 
-</script>
-
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#tabela-eqp').DataTable();
-} );
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-      $('#sidebarCollapse').on('click', function () {
-          $('#sidebar').toggleClass('active');
-      });
-  });
-</script>
-    
-{% block footer %}
-{% endblock %}
+            {% block main %}
+            {% endblock %}
 
 
 
+            <!-- Footer -->
+            <footer class="py-5 bg-primary">
+                <div class="container">
+                    <p class="m-0 text-center text-white">Copyright &copy; Rsoftware 2019</p>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
 </body>
+
 </html>
