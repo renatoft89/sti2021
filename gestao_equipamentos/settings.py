@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['sti2021.herokuapp.com', '127.0.0.1', 'localhost', '192.168.1.207','172.17.0.200']
+ALLOWED_HOSTS = ['sti-2021.herokuapp.com', '127.0.0.1', 'localhost', '192.168.1.207','172.17.0.200']
 
 
 # Application definition
