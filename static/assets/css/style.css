@@ -1,113 +1,242 @@
+/*
+    DEMO STYLE
+*/
 
-/**
-Navbar
-**/
-.navbar{
-  margin-bottom: 5rem;
-}
-.bg-light {
-  background-color: #343a40;
-}
-.navbar-light .navbar-brand {
-    color: rgba(255,255,255,.9);
-}
-.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
-    color: rgba(255, 255, 255,.9);
-}
-.navbar-light .navbar-nav .nav-link {
-    color: rgba(255, 255, 255,.8);
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
 }
 
-.jumbotron{
-  margin-top: -93px;
-}
-.wrap-login100 {
-  width: 572px;
-  background: #efeeee;
-  border-radius: 24px;
-  overflow: unset;
-  padding: 56px 10px 32px 124px;
-}
-.limiter{
-  width: 98%;
-  margin: 0 auto;
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
 }
 
-.cadastro{
-  text-align-last: center;
-  margin: 0 auto;
+footer {
+    margin-top: 336px;
+    box-shadow: 
+        0 0 1px rgba(0, 0, 0, 0.3), 
+        0 3px 7px rgba(0, 0, 0, 0.3), 
+        inset 0 1px rgba(255,255,255,1),
+        inset 0 -3px 2px rgba(0,0,0,0.25);
+    border-radius: 5px;
+    background: linear-gradient(#2981df, #007bff 10%);
 }
 
-.login{
-  text-align-last: center;
-  margin: 0 auto;
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
 }
 
-.text-muted{
-  color: black;
-  text-align: end;
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
-.th{
-  text-align: center;
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
 }
-.td{
-  text-align: center;
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
 }
-#tabela.btn-group{
-  margin-top: -24px;
-  padding-left: 160px;
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
 }
-#tabela_setor{
-  margin-top: -5px;
-  padding-left: 122px;
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #0062cc;
+    color: #fff;
+    transition: all 0.3s;
 }
-#id_username{
-  width: 50%;
+
+#sidebar.active {
+    margin-left: -250px;
 }
-#id_password{
-  width: 50%;
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #0062cc;
 }
-#container-eqp{
-  max-width: 90%;
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
 }
-#tabela-nob{
-  width: 98%;
-  margin-bottom: 1rem;
-  margin-left: 1%;
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
 }
-#tabela-usr{
-  width: 98%;
-  margin-bottom: 1rem;
-  margin-left: 1%;
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
 }
-#usr{
-  margin-top: -7px;
-  padding-left: 13px;
+
+#sidebar ul li a:hover {
+    color: #6c757d;
+    background: #fff;
 }
-#nob{
-  margin-top: -7px;
-  padding-left: 12px;
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #007bffb8;
 }
-#botao-nob{
-  margin-left: 1%;
+
+a[data-toggle="collapse"] {
+    position: relative;
 }
-#formMaquina{
-  width: 98%;
-  margin: 0 auto;
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
 }
-#formSetor{
-  width: 78%;
-  margin: 0 auto;
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #007bffb8;
 }
-#formImpressora{
-  width: 78%;
-  margin: 0 auto;
+
+ul.CTAs {
+    padding: 20px;
 }
-#formServidor{
-  width: 78%;
-  margin: 0 auto;
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
 }
-#formNobreak{
-  width: 78%;
-  margin: 0 auto;
+
+a.download {
+    background: #fff;
+    color: #007bffb8;
+}
+
+a.article,
+a.article:hover {
+    background: #007bffb8 !important;
+    color: #fff !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+
+.jumbotron {
+    box-shadow: 
+        0 0 1px rgba(0, 0, 0, 0.3), 
+        0 3px 7px rgba(0, 0, 0, 0.3), 
+        inset 0 1px rgba(255,255,255,1),
+        inset 0 -3px 2px rgba(0,0,0,0.25);
+    border-radius: 5px;
+    background: linear-gradient(#eeefef, #ffffff 10%);
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.container img {
+    max-width:800px;
+    max-height:650px;
+    width: auto;
+    height: auto;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+.btn-info{
+    background-color: #0062cc;
+    border-color: #2217b8;
+}
+
+/* ---------------------------------------------------
+    TABLES
+----------------------------------------------------- */
+
+.list-setores {
+    margin-left: 5px;
+    margin-right: 5px;
+    
+}
+
+.container-eqp {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.container-nobreaks {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+/* ---------------------------------------------------
+    FORM LOGIN
+----------------------------------------------------- */
+
+#container-login {
+    margin-left: 490px;
+    margin-right: 490px;
+    height: 324px;
+    padding: 19px;
+    box-shadow: 
+        0 0 1px rgba(0, 0, 0, 0.3), 
+        0 3px 7px rgba(0, 0, 0, 0.3), 
+        inset 0 1px rgba(255,255,255,1),
+        inset 0 -3px 2px rgba(0,0,0,0.25);
+    border-radius: 5px;
+    background: linear-gradient(#eeefef, #ffffff 10%);
 }

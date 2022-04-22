@@ -6,9 +6,10 @@
 
 {% block main %}
 
-        <h2 class="login">Login</h2>
+        
           
           <div class="wrap-login100" id="container-login"c>
+            <h2 class="login" text-aling>Login</h2>
             <form class="login-form" method="POST">
                 {% csrf_token %}
                 {{ form|bootstrap }}
