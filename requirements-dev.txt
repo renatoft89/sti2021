@@ -4,7 +4,7 @@ dj-static==0.0.6
 django-bootstrap-form==3.4
 django-crispy-forms==1.7.2
 django-multiselectfield==0.1.8
-Pillow==9.0.1
+Pillow==9.2.0
 python-decouple==3.1
 pytz==2019.1
 static3==0.7.0
